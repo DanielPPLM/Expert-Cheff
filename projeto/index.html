@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert-Cheff | Receitas Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imagens/ico-expert-cheff.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="logo-container">
+                <a href="#" id="btn-home-logo"><img src="imagens/logoexpert.png" alt="Expert-Cheff Logo" class="site-logo"></a>
+            </div>
+            
+            <div class="search-form">
+                <input type="text" placeholder="Pesquisar receitas..." id="search-input">
+                <button type="button" id="btn-buscar">BUSCAR</button>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="#" id="nav-home"><strong>HOME</strong><span class="sub-link">Página inicial</span></a></li>
+                <li><a href="#" class="nav-cat-link" data-cat="TODAS"><strong>RECEITAS</strong><span class="sub-link">Todas as receitas</span></a></li>
+                <li><a href="#" class="nav-cat-link" data-cat="CATEGORIAS"><strong>CATEGORIAS</strong><span class="sub-link">Tipos de receitas</span></a></li>
+                <li><a href="adicionar.html"><strong>ENVIAR RECEITA</strong><span class="sub-link">Compartilhar receita</span></a></li>
+                <li><a href="editar.html"><strong>EDITAR RECEITA</strong><span class="sub-link">Gerenciar receitas</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <section class="featured-section" id="bloco-destaque">
+            <h2>RECEITAS EM DESTAQUE</h2>
+            <p>Descubra receitas incríveis e deliciosas testadas e aprovadas pelos nossos chefs.</p>
+            <div class="grid-container" id="receitas-destaque"></div>
+        </section>
+
+        <section class="categories-section" id="bloco-categorias">
+            <div class="section-title">
+                <h2>CATEGORIAS</h2>
+                <p>(Navegue pelas principais categorias de receitas)</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-categoria="PRATOS PRINCIPAIS"><strong>PRATOS PRINCIPAIS</strong><span>Receitas salgadas</span></div>
+                <div class="category-card" data-categoria="SOBREMESAS"><strong>SOBREMESAS</strong><span>Bolos e doces</span></div>
+                <div class="category-card" data-categoria="BEBIDAS"><strong>BEBIDAS</strong><span>Sucos e drinks</span></div>
+                <div class="category-card" data-categoria="LANCHES"><strong>LANCHES</strong><span>Salgados e petiscos</span></div>
+                <div class="category-card" data-categoria="SAUDÁVEIS"><strong>SAUDÁVEIS</strong><span>Receitas fit</span></div>
+            </div>
+        </section>
+
+        <section class="recipe-grid-section" id="sec-novas">
+            <div class="section-title">
+                <h2 id="titulo-novas">RECEITAS NOVAS</h2>
+                <p id="sub-novas">(Lista das receitas mais recentes adicionadas)</p>
+            </div>
+            <div class="grid-container" id="receitas-novas"></div>
+        </section>
+
+        <section class="recipe-grid-section" id="sec-populares">
+            <div class="section-title">
+                <h2>RECEITAS POPULARES</h2>
+                <p>(Receitas com melhor avaliação do app)</p>
+            </div>
+            <div class="grid-container" id="receitas-populares"></div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>SOBRE O SITE</h3>
+                <p>O Expert-Cheff é o seu hub dinâmico para receitas práticas, rápidas e 100% testadas do dia a dia.</p>
+            </div>
+            <div class="footer-column">
+                <h3>LINKS ÚTEIS</h3>
+                <ul>
+                    <li><a href="#" class="reset-view">Home</a></li>
+                    <li><a href="#" class="nav-cat-link" data-cat="TODAS">Receitas</a></li>
+                    <li><a href="adicionar.html">Enviar Receita</a></li>
+                    <li><a href="editar.html">Editar Receita</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>RODAPÉ (Informações do site, links úteis e redes sociais)</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

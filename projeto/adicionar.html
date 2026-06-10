@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert-Cheff | Criar Receita</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imagens/ico-expert-cheff.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="logo-container">
+                <a href="index.html"><img src="imagens/logoexpert.png" alt="Expert-Cheff Logo" class="site-logo"></a>
+            </div>
+            <div id="page-topbar-title" style="color: white; font-weight: bold; font-size: 20px;">CADASTRO DE NOVAS RECEITAS</div>
+        </div>
+
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html" id="nav-home"><strong>HOME</strong><span class="sub-link">Página social</span></a></li>
+                <li><a href="index.html?view=todas" class="nav-cat-link" data-cat="TODAS"><strong>RECEITAS</strong><span class="sub-link">Todas as receitas</span></a></li>
+                <li><a href="index.html?view=categorias" class="nav-cat-link" data-cat="CATEGORIAS"><strong>CATEGORIAS</strong><span class="sub-link">Tipos de receitas</span></a></li>
+
+                <li><a href="adicionar.html"><strong>ENVIAR RECEITAS</strong><span class="sub-link">Compartilhar receita</span></a></li>
+                <li><a href="editar.html"><strong>EDITAR RECEITAS</strong><span class="sub-link">Gerenciar receitas</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="form-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 id="section-title">Inserir Nova Receita no Banco</h2>
+                <button type="button" class="btn-delete" id="btn-delete" style="background:#c0392b; padding: 10px 20px; border: none; color: white; border-radius: 4px; cursor: pointer; font-weight: bold;">DELETAR RECEITA</button>
+            </div>
+            <form id="form-adicionar" class="recipe-form">
+                <input type="hidden" id="form-id" value="">
+                <input type="hidden" id="form-imagem-atual" value="">
+
+                <div class="form-group">
+                    <label>Título:</label>
+                    <input type="text" id="form-titulo" required>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label>Seção:</label>
+                        <select id="form-secao">
+                            <option value="novas">Receitas Novas</option>
+                            <option value="populares">Receitas Populares</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Categoria:</label>
+                        <select id="form-categoria">
+                            <option value="PRATOS PRINCIPAIS">Pratos Principais</option>
+                            <option value="SOBREMESAS">Sobremesas</option>
+                            <option value="BEBIDAS">Bebidas</option>
+                            <option value="LANCHES">Lanches</option>
+                            <option value="SAUDÁVEIS">Saudáveis</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Descrição Curta:</label>
+                    <textarea id="form-desc" required rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Imagem da Receita:</label>
+                    <input type="file" id="form-imagem" accept="image/*">
+                    <div class="image-preview" id="image-preview">
+                        <img id="preview-img" src="imagens/sem-foto.jpg" alt="Pré-visualização da imagem">
+                        <span id="preview-text">Pré-visualização da imagem selecionada</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div><label>Preparo:</label><input type="text" id="form-preparo" placeholder="15 min" required></div>
+
+                    <div><label>Rendimento:</label><input type="text" id="form-rendimento" placeholder="4 porções" required></div>
+                    <div><label>Dificuldade:</label><input type="text" id="form-dificuldade" placeholder="Fácil" required></div>
+                </div>
+                <div class="form-group">
+                    <label>Ingredientes (Um por linha):</label>
+                    <textarea id="form-ingredientes" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Modo de Preparo (Um por linha):</label>
+                    <textarea id="form-preparo-passos" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Dica Especial:</label>
+                    <textarea id="form-dica" rows="2"></textarea>
+                </div>
+                <button type="submit" class="btn-submit" id="submit-button">PUBLICAR RECEITA NO SITE</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>SOBRE O SITE</h3>
+                <p>O Expert-Cheff é o seu hub dinâmico para receitas práticas, rápidas e 100% testadas do dia a dia.</p>
+            </div>
+            <div class="footer-column">
+                <h3>LINKS ÚTEIS</h3>
+                <ul>
+                    <li><a href="index.html" class="reset-view">Home</a></li>
+                    <li><a href="index.html?view=todas" class="nav-cat-link" data-cat="TODAS">Receitas</a></li>
+
+                    <li><a href="adicionar.html">Enviar Receita</a></li>
+                    <li><a href="editar.html">Editar Receita</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>RODAPÉ (Informações do site, links úteis e redes sociais)</p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('form-adicionar');
+        const submitButton = document.getElementById('submit-button');
+        const pageTopbarTitle = document.getElementById('page-topbar-title');
+        const sectionTitle = document.getElementById('section-title');
+        const deleteButton = document.getElementById('btn-delete');
+        const inputImagem = document.getElementById('form-imagem');
+        const previewImg = document.getElementById('preview-img');
+        const previewText = document.getElementById('preview-text');
+        const inputImagemAtual = document.getElementById('form-imagem-atual');
+        const inputId = document.getElementById('form-id');
+
+        function atualizarPreviewImagem(file) {
+            if (!file) {
+                if (inputImagemAtual.value) {
+                    previewImg.src = inputImagemAtual.value;
+                    previewText.textContent = 'Imagem atual da receita';
+                } else {
+                    previewImg.src = 'imagens/sem-foto.jpg';
+                    previewText.textContent = 'Nenhuma imagem selecionada';
+                }
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                previewImg.src = event.target.result;
+                previewText.textContent = 'Pré-visualização da imagem selecionada';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        inputImagem.addEventListener('change', () => {
+            atualizarPreviewImagem(inputImagem.files[0]);
+        });
+
+        function getQueryParam(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+        function normalizarArrayOuObjeto(valor) {
+            if (Array.isArray(valor)) return valor;
+            if (valor && typeof valor === 'object') {
+                const entries = Object.entries(valor);
+                entries.sort((a, b) => {
+                    const na = Number(a[0]);
+                    const nb = Number(b[0]);
+                    if (!Number.isNaN(na) && !Number.isNaN(nb)) return na - nb;
+                    return String(a[0]).localeCompare(String(b[0]));
+                });
+                return entries.map(([, v]) => v).filter(v => v !== undefined && v !== null && String(v).trim() !== '');
+            }
+            if (typeof valor === 'string') {
+                if (valor.includes('\n')) return valor.split('\n').map(s => s.trim()).filter(Boolean);
+                if (valor.includes(',')) return valor.split(',').map(s => s.trim()).filter(Boolean);
+                return [valor];
+            }
+            return [];
+        }
+        const autoExpandTextareas = document.querySelectorAll('#form-adicionar textarea');
+        autoExpandTextareas.forEach((ta) => {
+            const resize = () => {
+                ta.style.height = 'auto';
+                ta.style.height = ta.scrollHeight + 'px';
+            };
+            ta.addEventListener('input', resize);
+            resize();
+        });
+
+        async function carregarReceitaParaEdicao(id) {
+            try {
+                const resposta = await fetch('receitas.json');
+                const receitas = await resposta.json();
+                const receita = receitas.find(r => Number(r.id) === Number(id));
+
+                if (!receita) return;
+
+                inputId.value = receita.id;
+                document.getElementById('form-titulo').value = receita.titulo || '';
+                document.getElementById('form-secao').value = receita.secao || 'novas';
+                document.getElementById('form-categoria').value = receita.categoria || '';
+                document.getElementById('form-desc').value = receita.desc || '';
+                document.getElementById('form-preparo').value = receita.tempo_preparo || '';
+                document.getElementById('form-rendimento').value = receita.rendimento || '';
+                document.getElementById('form-dificuldade').value = receita.dificuldade || '';
+
+                const ingredientes = normalizarArrayOuObjeto(receita.ingredientes);
+                document.getElementById('form-ingredientes').value = ingredientes.join('\n');
+
+                const passos = normalizarArrayOuObjeto(receita.modo_preparo);
+                document.getElementById('form-preparo-passos').value = passos.join('\n');
+
+                document.getElementById('form-dica').value = receita.dica_chef ?? '';
+
+                inputImagemAtual.value = receita.imagem || '';
+                atualizarPreviewImagem(null);
+
+                form.querySelector('#form-imagem').required = false;
+                submitButton.textContent = 'SALVAR ALTERAÇÕES DA RECEITA';
+                pageTopbarTitle.textContent = 'EDITAR RECEITA NO BANCO';
+                sectionTitle.innerText = 'Editar Receita no Banco';
+                deleteButton.textContent = 'DELETAR RECEITA';
+                deleteButton.disabled = false;
+                deleteButton.style.opacity = '1';
+
+                autoExpandTextareas.forEach((ta) => {
+                    ta.style.height = 'auto';
+                    ta.style.height = ta.scrollHeight + 'px';
+                });
+            } catch (erro) {
+                console.error('Erro ao carregar receita para edição:', erro);
+            }
+        }
+
+        const receitaId = getQueryParam('id');
+        if (receitaId) {
+            carregarReceitaParaEdicao(receitaId);
+        } else {
+            inputImagem.required = true;
+            pageTopbarTitle.textContent = 'CADASTRO DE NOVAS RECEITAS';
+            sectionTitle.innerText = 'Inserir Nova Receita no Banco';
+            deleteButton.textContent = 'DELETAR RECEITA';
+            deleteButton.style.opacity = '0.5';
+            deleteButton.disabled = true;
+        }
+
+        atualizarPreviewImagem(null);
+
+        deleteButton.addEventListener('click', async () => {
+            if (!inputId.value) {
+                alert('Nenhuma receita selecionada para deletar.');
+                return;
+            }
+            if (!confirm('Deseja realmente excluir esta receita?')) return;
+
+            const formData = new FormData();
+            formData.append('action', 'delete');
+            formData.append('id', inputId.value);
+
+            try {
+                const resposta = await fetch('receitas.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const resultado = await resposta.json();
+                if (resultado.status === 'sucesso') {
+                    alert('Receita deletada com sucesso!');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Erro ao excluir receita.');
+                }
+            } catch (erro) {
+                console.error(erro);
+                alert('Erro ao excluir receita.');
+            }
+        });
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData();
+            formData.append('titulo', document.getElementById('form-titulo').value);
+            formData.append('secao', document.getElementById('form-secao').value);
+            formData.append('categoria', document.getElementById('form-categoria').value);
+            formData.append('desc', document.getElementById('form-desc').value);
+            formData.append('tempo_preparo', document.getElementById('form-preparo').value);
+            formData.append('rendimento', document.getElementById('form-rendimento').value);
+            formData.append('dificuldade', document.getElementById('form-dificuldade').value);
+            formData.append('ingredientes', document.getElementById('form-ingredientes').value);
+            formData.append('modo_preparo', document.getElementById('form-preparo-passos').value);
+            formData.append('dica_chef', document.getElementById('form-dica').value);
+            formData.append('calorias', '350 kcal');
+            formData.append('proteinas', '12g');
+            formData.append('carboidratos', '40g');
+            formData.append('gorduras', '10g');
+
+            const idValue = inputId.value;
+            if (idValue) {
+                formData.append('id', idValue);
+                formData.append('imagem_atual', inputImagemAtual.value);
+            }
+
+            if (inputImagem.files[0]) {
+                formData.append('imagem', inputImagem.files[0]);
+            }
+
+            try {
+                const resposta = await fetch('receitas.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const resultado = await resposta.json();
+
+                if (resultado.status === 'sucesso') {
+                    alert(idValue ? 'Receita atualizada com sucesso!' : 'Receita cadastrada com sucesso!');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Erro ao salvar receita.');
+                }
+            } catch (erro) {
+                console.error(erro);
+                alert('Erro ao enviar receita.');
+            }
+        });
+    </script>
+</body>
+</html>
+

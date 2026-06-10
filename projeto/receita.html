@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert-Cheff | Detalhes da Receita</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imagens/ico-expert-cheff.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="logo-container">
+                <a href="index.html"><img src="imagens/logoexpert.png" alt="Expert-Cheff Logo" class="site-logo"></a>
+            </div>
+            
+            <div class="search-form">
+                <input type="text" id="search-input" placeholder="Busque uma receita...">
+                <button id="btn-buscar">Buscar</button>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="#" id="nav-home"><strong>HOME</strong><span class="sub-link">Página inicial</span></a></li>
+                <li><a href="#" class="nav-cat-link" data-cat="TODAS"><strong>RECEITAS</strong><span class="sub-link">Todas as receitas</span></a></li>
+                <li><a href="#" class="nav-cat-link" data-cat="CATEGORIAS"><strong>CATEGORIAS</strong><span class="sub-link">Tipos de receitas</span></a></li>
+                <li><a href="adicionar.html"><strong>ENVIAR RECEITA</strong><span class="sub-link">Compartilhar receita</span></a></li>
+                <li><a href="editar.html"><strong>EDITAR RECEITA</strong><span class="sub-link">Gerenciar receitas</span></a></li>
+            </ul>
+        </nav>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> &gt; <span id="bread-categoria">Categoria</span> &gt; <span id="bread-titulo" class="active">Título</span>
+        </div>
+
+        <section class="recipe-detail-header">
+            <div class="recipe-main-image">
+                <img id="rec-imagem" src="" alt="Imagem da Receita">
+                <div class="favorite-heart">♥</div>
+            </div>
+            
+            <div class="recipe-main-info">
+                <span class="category-badge" id="rec-categoria">CATEGORIA</span>
+                <h1 id="rec-titulo">Carregando...</h1>
+                <p class="recipe-summary-desc" id="rec-desc">Carregando...</p>
+                
+                <div class="rating-container">
+                    <div class="stars" id="stars">
+                        <span data-star="1">★</span>
+                        <span data-star="2">★</span>
+                        <span data-star="3">★</span>
+                        <span data-star="4">★</span>
+                        <span data-star="5">★</span>
+                    </div>
+                    <span id="rating-text">Sem avaliações</span>
+                </div>
+
+                <div class="technical-info-grid">
+                    <div class="tech-box">
+                        <span class="tech-icon">⏱</span>
+                        <small>Tempo de preparo</small>
+                        <strong id="rec-preparo">-</strong>
+                    </div>
+
+                    <div class="tech-box">
+                        <span class="tech-icon">🍽</span>
+                        <small>Rendimento</small>
+                        <strong id="rec-rendimento">-</strong>
+                    </div>
+                    <div class="tech-box">
+                        <span class="tech-icon">📊</span>
+                        <small>Dificuldade</small>
+                        <strong id="rec-dificuldade">-</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="recipe-instructions-layout">
+            <div class="left-instructions">
+                <div class="instruction-box">
+                    <h2><span class="box-icon">🛒</span> INGREDIENTES</h2>
+                    <ul class="ingredients-list" id="rec-ingredientes"></ul>
+                </div>
+
+                <div class="chef-tip-box">
+                    <h3>💡 DICA DO CHEF</h3>
+                    <p id="rec-dica">-</p>
+                </div>
+            </div>
+
+            <div class="right-instructions">
+                <div class="instruction-box">
+                    <h2><span class="box-icon">🍳</span> MODO DE PREPARO</h2>
+                    <ol class="steps-list" id="rec-preparo-passos"></ol>
+                </div>
+
+                <div class="nutrition-box">
+                    <h4>Informação Nutricional (por porção)</h4>
+                    <div class="nutrition-grid">
+                        <div>Calorias: <strong id="nutr-cal">-</strong></div>
+                        <div>Proteínas: <strong id="nutr-prot">-</strong></div>
+                        <div>Carboidratos: <strong id="nutr-carb">-</strong></div>
+                        <div>Gorduras: <strong id="nutr-gord">-</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>SOBRE O SITE</h3>
+                <p>O Expert-Cheff é o seu hub dinâmico para receitas práticas, rápidas e 100% testadas do dia a dia.</p>
+            </div>
+            <div class="footer-column">
+                <h3>LINKS ÚTEIS</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html?view=todas">Receitas</a></li>
+                    <li><a href="adicionar.html">Enviar Receita</a></li>
+                    <li><a href="editar.html">Editar Receita</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Expert-Cheff. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script src="receita.js"></script>
+</body>
+</html>
